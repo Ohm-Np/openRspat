@@ -18,6 +18,8 @@ install.github("Ohm-Np/openRspat")
 
 This is a basic example which shows you how to solve a common problem:
 
+`1. area_proj`
+
 ``` r
 library(openRspat)
 ## basic example code
