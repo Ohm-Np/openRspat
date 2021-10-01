@@ -1,0 +1,12 @@
+Package: openRspat
+Type: Package
+Title: Open source geo-spatial analysis
+Version: 0.1.0
+Author: Om Prakash Bhandari
+Maintainer: Om Prakash Bhandari <om.bhandari1995@gmail.com>
+Description: Contain functions to download free & open geo-datasets, convert projection of the sf objects, and perform geospatial analysis of the datasets.
+License: GPL-2
+Imports: sf, spData
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.1
