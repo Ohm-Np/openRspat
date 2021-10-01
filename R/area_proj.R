@@ -6,13 +6,16 @@
 #'
 #' @return LAEA projection string
 #'
+#' @export
 #' @examples
-#' x <- spData::us_states[1,]
+#' fname <- system.file("shape/nc.shp", package="sf")
+#' sf <- sf::st_read(fname)
+#' x <- sf[1, ]
 #' area_proj(x)
-#'
 #' @export
 
 area_proj <- function(x) {
+
   bb <- sf::st_bbox(x)
   cntr_long <- (bb[3] - bb[1]) * 0.5 + bb[1]
   cntr_lat <- (bb[4] - bb[2]) * 0.5 + bb[2]
