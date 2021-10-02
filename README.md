@@ -4,7 +4,7 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of openRspat is to create API access to the free and open source geodatasets and provides functions to process those datasets.
+The goal of openRspat is to create API access to the free and open source geodatasets and provide functions to process those datasets.
 
 ## Installation
 
@@ -29,6 +29,8 @@ sf <- sf::st_read(fname)
 x <- sf[1, ]
 area_proj(x)
 ```
+
+===============================================================================
 
 `2. get_copernicus_land_cover`
 
