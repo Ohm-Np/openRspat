@@ -11,7 +11,7 @@ The goal of openRspat is to create API access to the free and open source geodat
 You can install the released version of openRspat from [GitHub](https://github.com/) with:
 
 ``` r
-install_github("Ohm-Np/openRspat")
+remotes::install_github("Ohm-Np/openRspat")
 ```
 
 ## Example
