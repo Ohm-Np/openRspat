@@ -46,3 +46,7 @@ f <- "../../" # path to the folder where you want to download the rasters
 get_copernicus_land_cover(2015, "W120N40", f)
 ```
 
+============================================================================
+
+
+
