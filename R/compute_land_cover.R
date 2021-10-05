@@ -30,7 +30,6 @@
 
 compute_land_cover <- function(r, p, y) {
 
-  class_area <- NULL
   # crop the raster
   lc_rast_crop <- terra::crop(r,
                               p)
@@ -40,13 +39,13 @@ compute_land_cover <- function(r, p, y) {
   # mask the raster
   lc_rast_mask <- terra::mask(lc_rast_crop,
                               p_v)
-  # store raster class_areas as dataframe
+  # store raster values as dataframe
   df <-
     terra::as.data.frame(lc_rast_mask)
-  # new dataframe with class_area column - to change the column name to class_area
+  # new dataframe with value column - to change the column name to value
   df.new <-
-    data.frame(class_area=NA)
-  # rename column to match with new df where raster class_areas are stored
+    data.frame(value=NA)
+  # rename column to match with new df where raster values are stored
   colnames(df) <-
     colnames(df.new)
   # area of masked raster in km
@@ -54,7 +53,7 @@ compute_land_cover <- function(r, p, y) {
                               unit="km")
   # area per row of dataframe
   area_sqkm_per_cell <-
-    area_sqkm/nrow(lc_rast_mask)
+    area_sqkm/nrow(df)
   # set UID
   p <-
     tibble::rowid_to_column(p, "UID")
@@ -66,208 +65,208 @@ compute_land_cover <- function(r, p, y) {
   # discrete classification and respective area computation - map code represents respective class name
   ### empty classes
   empty <- df%>%
-    filter(class_area %in% 0)%>%
+    filter(value %in% 0)%>%
     nrow()
   df.final$copernicus_lc_empty_area_sqkm <- area_sqkm_per_cell*empty
-  # rename the column to store class_area per year
+  # rename the column to store value per year
   names(df.final)[names(df.final) == "copernicus_lc_empty_area_sqkm"] <-
     paste0("copernicus_lc_empty_area_sqkm_",y)
 
   ### 111 Closed forest, evergreen needle leaf
   cfenl <- df%>%
-    filter(class_area %in% 111)%>%
+    filter(value %in% 111)%>%
     nrow()
   df.final$copernicus_lc_closed_forest_evergreen_needle_leaf_area_sqkm <- area_sqkm_per_cell*cfenl
-  # rename the column to store class_area per year
+  # rename the column to store value per year
   names(df.final)[names(df.final) == "copernicus_lc_closed_forest_evergreen_needle_leaf_area_sqkm"] <-
     paste0("copernicus_lc_closed_forest_evergreen_needle_leaf_area_sqkm_",y)
 
   ### 113 closed forest, deciduous needle leaf
   cfdnl <- df%>%
-    filter(class_area %in% 113)%>%
+    filter(value %in% 113)%>%
     nrow()
   df.final$copernicus_lc_closed_forest_deciduous_needle_leaf_area_sqkm <- area_sqkm_per_cell*cfdnl
-  # rename the column to store class_area per year
+  # rename the column to store value per year
   names(df.final)[names(df.final) == "copernicus_lc_closed_forest_deciduous_needle_leaf_area_sqkm"] <-
     paste0("copernicus_lc_closed_forest_deciduous_needle_leaf_area_sqkm_",y)
 
   ### 112 closed forest, evergreen, broad leaf
   cfebl <- df%>%
-    filter(class_area %in% 112)%>%
+    filter(value %in% 112)%>%
     nrow()
   df.final$copernicus_lc_closed_forest_evergreen_broad_leaf_area_sqkm <- area_sqkm_per_cell*cfebl
-  # rename the column to store class_area per year
+  # rename the column to store value per year
   names(df.final)[names(df.final) == "copernicus_lc_closed_forest_evergreen_broad_leaf_area_sqkm"] <-
     paste0("copernicus_lc_closed_forest_evergreen_broad_leaf_area_sqkm_",y)
 
   ### 114 closed forest, deciduous broad leaf
   cfdbl <- df%>%
-    filter(class_area %in% 114)%>%
+    filter(value %in% 114)%>%
     nrow()
   df.final$copernicus_lc_closed_forest_deciduous_broad_leaf_area_sqkm <- area_sqkm_per_cell*cfdbl
-  # rename the column to store class_area per year
+  # rename the column to store value per year
   names(df.final)[names(df.final) == "copernicus_lc_closed_forest_deciduous_broad_leaf_area_sqkm"] <-
     paste0("copernicus_lc_closed_forest_deciduous_broad_leaf_area_sqkm_",y)
 
   ### 115 closed forest, mixed
   cfm <- df%>%
-    filter(class_area %in% 115)%>%
+    filter(value %in% 115)%>%
     nrow()
   df.final$copernicus_lc_closed_forest_mixed_area_sqkm <- area_sqkm_per_cell*cfm
-  # rename the column to store class_area per year
+  # rename the column to store value per year
   names(df.final)[names(df.final) == "copernicus_lc_closed_forest_mixed_area_sqkm"] <-
     paste0("copernicus_lc_closed_forest_mixed_area_sqkm_",y)
 
   ### 116 closed forest, unknown
   cfu <- df%>%
-    filter(class_area %in% 116)%>%
+    filter(value %in% 116)%>%
     nrow()
   df.final$copernicus_lc_closed_forest_unknown_area_sqkm <- area_sqkm_per_cell*cfu
-  # rename the column to store class_area per year
+  # rename the column to store value per year
   names(df.final)[names(df.final) == "copernicus_lc_closed_forest_unknown_area_sqkm"] <-
     paste0("copernicus_lc_closed_forest_unknown_area_sqkm_",y)
 
   ### 121 Open forest, evergreen needle leaf
   ofenl <- df%>%
-    filter(class_area %in% 121)%>%
+    filter(value %in% 121)%>%
     nrow()
   df.final$copernicus_lc_open_forest_evergreen_needle_leaf_area_sqkm <- area_sqkm_per_cell*ofenl
-  # rename the column to store class_area per year
+  # rename the column to store value per year
   names(df.final)[names(df.final) == "copernicus_lc_open_forest_evergreen_needle_leaf_area_sqkm"] <-
     paste0("copernicus_lc_open_forest_evergreen_needle_leaf_area_sqkm_",y)
 
   ### 123 Open forest, deciduous needle leaf
   ofdnl <- df%>%
-    filter(class_area %in% 123)%>%
+    filter(value %in% 123)%>%
     nrow()
   df.final$copernicus_lc_open_forest_deciduous_needle_leaf_area_sqkm <- area_sqkm_per_cell*ofdnl
-  # rename the column to store class_area per year
+  # rename the column to store value per year
   names(df.final)[names(df.final) == "copernicus_lc_open_forest_deciduous_needle_leaf_area_sqkm"] <-
     paste0("copernicus_lc_open_forest_deciduous_needle_leaf_area_sqkm_",y)
 
   ### 122 Open forest, evergreen broad leaf
   ofebl <- df%>%
-    filter(class_area %in% 122)%>%
+    filter(value %in% 122)%>%
     nrow()
   df.final$copernicus_lc_open_forest_evergreen_broad_leaf_area_sqkm <- area_sqkm_per_cell*ofebl
-  # rename the column to store class_area per year
+  # rename the column to store value per year
   names(df.final)[names(df.final) == "copernicus_lc_open_forest_evergreen_broad_leaf_area_sqkm"] <-
     paste0("copernicus_lc_open_forest_evergreen_broad_leaf_area_sqkm_",y)
 
   ### 124 Open forest, deciduous broad leaf
   ofdbl <- df%>%
-    filter(class_area %in% 124)%>%
+    filter(value %in% 124)%>%
     nrow()
   df.final$copernicus_lc_open_forest_deciduous_broad_leaf_area_sqkm <- area_sqkm_per_cell*ofdbl
-  # rename the column to store class_area per year
+  # rename the column to store value per year
   names(df.final)[names(df.final) == "copernicus_lc_open_forest_deciduous_broad_leaf_area_sqkm"] <-
     paste0("copernicus_lc_open_forest_deciduous_broad_leaf_area_sqkm_",y)
 
   ### 125 Open forest, mixed
   ofm <- df%>%
-    filter(class_area %in% 125)%>%
+    filter(value %in% 125)%>%
     nrow()
   df.final$copernicus_lc_open_forest_mixed_area_sqkm <- area_sqkm_per_cell*ofm
-  # rename the column to store class_area per year
+  # rename the column to store value per year
   names(df.final)[names(df.final) == "copernicus_lc_open_forest_mixed_area_sqkm"] <-
     paste0("copernicus_lc_open_forest_mixed_area_sqkm_",y)
 
   ### 126 Open forest, unknown
   ofu <- df%>%
-    filter(class_area %in% 126)%>%
+    filter(value %in% 126)%>%
     nrow()
   df.final$copernicus_lc_open_forest_unknown_area_sqkm <- area_sqkm_per_cell*ofu
-  # rename the column to store class_area per year
+  # rename the column to store value per year
   names(df.final)[names(df.final) == "copernicus_lc_open_forest_unknown_area_sqkm"] <-
     paste0("copernicus_lc_open_forest_unknown_area_sqkm_",y)
 
   ### 20 Shrubs
   shrubs <- df%>%
-    filter(class_area %in% 20)%>%
+    filter(value %in% 20)%>%
     nrow()
   df.final$copernicus_lc_shrubs_area_sqkm <- area_sqkm_per_cell*shrubs
-  # rename the column to store class_area per year
+  # rename the column to store value per year
   names(df.final)[names(df.final) == "copernicus_lc_shrubs_area_sqkm"] <-
     paste0("copernicus_lc_shrubs_area_sqkm_",y)
 
   ### 30 herbaceous vegetation
   herb_veg <- df%>%
-    filter(class_area %in% 30)%>%
+    filter(value %in% 30)%>%
     nrow()
   df.final$copernicus_lc_herbaceous_vegetation_area_sqkm <- area_sqkm_per_cell*herb_veg
-  # rename the column to store class_area per year
+  # rename the column to store value per year
   names(df.final)[names(df.final) == "copernicus_lc_herbaceous_vegetation_area_sqkm"] <-
     paste0("copernicus_lc_herbaceous_vegetation_area_sqkm_",y)
 
   ### 90 herbaceous wetland
   herb_wet <- df%>%
-    filter(class_area %in% 90)%>%
+    filter(value %in% 90)%>%
     nrow()
   df.final$copernicus_lc_herbaceous_wetland_area_sqkm <- area_sqkm_per_cell*herb_wet
-  # rename the column to store class_area per year
+  # rename the column to store value per year
   names(df.final)[names(df.final) == "copernicus_lc_herbaceous_wetland_area_sqkm"] <-
     paste0("copernicus_lc_herbaceous_wetland_area_sqkm_",y)
 
   ### 100 Moss and lichen
   moss <- df%>%
-    filter(class_area %in% 100)%>%
+    filter(value %in% 100)%>%
     nrow()
   df.final$copernicus_lc_moss_area_sqkm <- area_sqkm_per_cell*moss
-  # rename the column to store class_area per year
+  # rename the column to store value per year
   names(df.final)[names(df.final) == "copernicus_lc_moss_area_sqkm"] <-
     paste0("copernicus_lc_moss_area_sqkm_",y)
 
   ### 60 Bare / sparse vegetation
   bsv <- df%>%
-    filter(class_area %in% 60)%>%
+    filter(value %in% 60)%>%
     nrow()
   df.final$copernicus_lc_bare_sparse_vegetation_area_sqkm <- area_sqkm_per_cell*bsv
-  # rename the column to store class_area per year
+  # rename the column to store value per year
   names(df.final)[names(df.final) == "copernicus_lc_bare_sparse_vegetation_area_sqkm"] <-
     paste0("copernicus_lc_bare_sparse_vegetation_area_sqkm_",y)
 
   ### 40 Cultivated and managed vegetation/agriculture (cropland)
   cmv <- df%>%
-    filter(class_area %in% 40)%>%
+    filter(value %in% 40)%>%
     nrow()
   df.final$copernicus_lc_cultivated_managed_vegetation_agriculture_area_sqkm <- area_sqkm_per_cell*cmv
-  # rename the column to store class_area per year
+  # rename the column to store value per year
   names(df.final)[names(df.final) == "copernicus_lc_cultivated_managed_vegetation_agriculture_area_sqkm"] <-
     paste0("copernicus_lc_cultivated_managed_vegetation_agriculture_area_sqkm_",y)
 
   ### 50 Urban / Built up
   urban <- df%>%
-    filter(class_area %in% 50)%>%
+    filter(value %in% 50)%>%
     nrow()
   df.final$copernicus_lc_urban_built_up_area_sqkm <- area_sqkm_per_cell*urban
-  # rename the column to store class_area per year
+  # rename the column to store value per year
   names(df.final)[names(df.final) == "copernicus_lc_urban_built_up_area_sqkm"] <-
     paste0("copernicus_lc_urban_built_up_area_sqkm_",y)
 
   ### 70 Snow and Ice
   snow <- df%>%
-    filter(class_area %in% 70)%>%
+    filter(value %in% 70)%>%
     nrow()
   df.final$copernicus_lc_snow_and_ice_area_sqkm <- area_sqkm_per_cell*snow
-  # rename the column to store class_area per year
+  # rename the column to store value per year
   names(df.final)[names(df.final) == "copernicus_lc_snow_and_ice_area_sqkm"] <-
     paste0("copernicus_lc_snow_and_ice_area_sqkm_",y)
 
   ### 80 Permanent water bodies
   pwb <- df%>%
-    filter(class_area %in% 80)%>%
+    filter(value %in% 80)%>%
     nrow()
   df.final$copernicus_lc_permanent_water_bodies_area_sqkm <- area_sqkm_per_cell*pwb
-  # rename the column to store class_area per year
+  # rename the column to store value per year
   names(df.final)[names(df.final) == "copernicus_lc_permanent_water_bodies_area_sqkm"] <-
     paste0("copernicus_lc_permanent_water_bodies_area_sqkm_",y)
 
   ### 200 Open Sea
   sea <- df%>%
-    filter(class_area %in% 200)%>%
+    filter(value %in% 200)%>%
     nrow()
   df.final$copernicus_lc_open_sea_area_sqkm <- area_sqkm_per_cell*sea
-  # rename the column to store class_area per year
+  # rename the column to store value per year
   names(df.final)[names(df.final) == "copernicus_lc_open_sea_area_sqkm"] <-
     paste0("copernicus_lc_open_sea_area_sqkm_",y)
 
@@ -288,4 +287,3 @@ compute_land_cover <- function(r, p, y) {
   # return results
   return(df.final_long)
 }
-
