@@ -8,6 +8,8 @@
 #'
 #' @param f path
 #'
+#' @importFrom utils download.file
+#'
 #' @return copernicus land cover rasters
 #'
 #' @export
