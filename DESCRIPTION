@@ -7,7 +7,6 @@ Maintainer: Om Prakash Bhandari <om.bhandari1995@gmail.com>
 Description: Contain functions to download free & open geo-datasets, convert projection of the sf objects, and perform geospatial analysis of the datasets.
 License: GPL (>= 3)
 Imports: sf, tidyr, dplyr, tibble, utils, terra
-Remotes: git::https://github.com/rspatial/terra.git
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1

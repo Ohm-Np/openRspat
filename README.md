@@ -55,6 +55,14 @@ With this function, you can compute 23 copernicus land cover classes values in s
 library(openRspat)
 ## basic example code
 
-
+# load raster
+r <- terra::rast(system.file("extdata", "test_lc_rast.tif", package = "openRspat"))
+# load polygon
+fname <- system.file("shape/nc.shp", package="sf")
+sf <- sf::st_read(fname)
+# transform sf object to match projection with raster object
+sf <- sf::st_transform(sf, "+proj=longlat +datum=WGS84 +no_defs")
+# call function
+compute_land_cover(r, sf[1,], 2015)
 ```
 
