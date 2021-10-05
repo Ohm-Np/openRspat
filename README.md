@@ -33,7 +33,7 @@ x <- sf[1, ]
 area_proj(x)
 ```
 
-============================================================================
+========================================
 
 `2. get_copernicus_land_cover`
 
@@ -46,7 +46,7 @@ f <- "../../" # path to the folder where you want to download the rasters
 get_copernicus_land_cover(2015, "W120N40", f)
 ```
 
-============================================================================
+========================================
 
 `3. compute_land_cover`
 
@@ -66,3 +66,4 @@ sf <- sf::st_transform(sf, "+proj=longlat +datum=WGS84 +no_defs")
 compute_land_cover(r, sf[1,], 2015)
 ```
 
+========================================
