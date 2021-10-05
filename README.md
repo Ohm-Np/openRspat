@@ -48,5 +48,13 @@ get_copernicus_land_cover(2015, "W120N40", f)
 
 ============================================================================
 
+`3. compute_land_cover`
 
+With this function, you can compute 23 copernicus land cover classes values in sqkm.
+```r
+library(openRspat)
+## basic example code
+
+
+```
 
