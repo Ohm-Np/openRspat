@@ -6,7 +6,7 @@ Author: Om Prakash Bhandari
 Maintainer: Om Prakash Bhandari <om.bhandari1995@gmail.com>
 Description: Contain functions to download free & open geo-datasets, convert projection of the sf objects, and perform geospatial analysis of the datasets.
 License: GPL (>= 3)
-Imports: sf
+Imports: sf, terra, tidyverse
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1
