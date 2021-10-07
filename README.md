@@ -67,3 +67,33 @@ compute_land_cover(r, sf[1,], 2015)
 ```
 
 ========================================
+
+`4. get_gadm_shp`
+
+Access GADM administrative datasets (as a shapefile).
+```r
+library(openRspat)
+## basic example code
+
+# give path to your destination folder
+f <- "../../"
+# call the function (provide ISO3 code of country of interest) - here, I used Nepal
+get_gadm_shp("NPL", f)
+```
+
+========================================
+
+`5. get_gadm_gpkg`
+
+Access GADM administrative datasets (as a geopackage).
+```r
+library(openRspat)
+## basic example code
+
+# give path to your destination folder
+f <- "../../"
+# call the function (provide ISO3 code of country of interest) - here, I used Nepal
+get_gadm_shp("NPL", f)
+```
+
+========================================
