@@ -93,7 +93,7 @@ library(openRspat)
 # give path to your destination folder
 f <- "../../"
 # call the function (provide ISO3 code of country of interest) - here, I used Nepal
-get_gadm_shp("NPL", f)
+get_gadm_gpkg("NPL", f)
 ```
 
 ========================================
