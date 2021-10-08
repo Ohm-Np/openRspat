@@ -35,7 +35,7 @@ area_proj(x)
 Other available functions in the package are listed here:
 |Functions|Decsription|
 |---------|-----------|
-|`2. get_copernicus_land_cover`|Download 100m spatial resolution copernicus global land cover rasters for years 2015 to 2019.|
-|`3. compute_land_cover`|Compute area of copernicus land cover classes in sqkm.|
-|`4. get_gadm_shp`|Download administrative polygons from GADM as a shapefile.|
-|`5. get_gadm_gpkg`|Download administrative polygons from GADM as a geopackage.|
+|`get_copernicus_land_cover`|Download 100m spatial resolution copernicus global land cover rasters for years 2015 to 2019.|
+|`compute_land_cover`|Compute area of copernicus land cover classes in sqkm.|
+|`get_gadm_shp`|Download administrative polygons from GADM as a shapefile.|
+|`get_gadm_gpkg`|Download administrative polygons from GADM as a geopackage.|
