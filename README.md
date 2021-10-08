@@ -32,68 +32,10 @@ sf <- sf::st_read(fname)
 x <- sf[1, ]
 area_proj(x)
 ```
-
-========================================
-
-`2. get_copernicus_land_cover`
-
-With this function, you can download copernicus global land cover rasters for your desired region of interest. 100m spatial resolution rasters are available to download for the years 2015 to 2019.
-```r
-library(openRspat)
-## basic example code
-
-f <- "../../" # path to the folder where you want to download the rasters
-get_copernicus_land_cover(2015, "W120N40", f)
-```
-
-========================================
-
-`3. compute_land_cover`
-
-With this function, you can compute 23 copernicus land cover classes values in sqkm.
-```r
-library(openRspat)
-## basic example code
-
-# load raster
-r <- terra::rast(system.file("extdata", "test_lc_rast.tif", package = "openRspat"))
-# load polygon
-fname <- system.file("shape/nc.shp", package="sf")
-sf <- sf::st_read(fname)
-# transform sf object to match projection with raster object
-sf <- sf::st_transform(sf, "+proj=longlat +datum=WGS84 +no_defs")
-# call function
-compute_land_cover(r, sf[1,], 2015)
-```
-
-========================================
-
-`4. get_gadm_shp`
-
-Access GADM administrative datasets (as a shapefile).
-```r
-library(openRspat)
-## basic example code
-
-# give path to your destination folder
-f <- "../../"
-# call the function (provide ISO3 code of country of interest) - here, I used Nepal
-get_gadm_shp("NPL", f)
-```
-
-========================================
-
-`5. get_gadm_gpkg`
-
-Access GADM administrative datasets (as a geopackage).
-```r
-library(openRspat)
-## basic example code
-
-# give path to your destination folder
-f <- "../../"
-# call the function (provide ISO3 code of country of interest) - here, I used Nepal
-get_gadm_gpkg("NPL", f)
-```
-
-========================================
+Other available functions in the package are listed here:
+|Functions|Decsription|
+|---------|-----------|
+|2. get_copernicus_land_cover|Download 100m spatial resolution copernicus global land cover rasters for years 2015 to 2019.|
+|3. compute_land_cover|Compute area of copernicus land cover classes in sqkm.|
+|4. get_gadm_shp|Download administrative polygons from GADM as a shapefile.|
+|5. get_gadm_gpkg|Download administrative polygons from GADM as a geopackage.|
