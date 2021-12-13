@@ -39,3 +39,5 @@ Other available functions in the package are listed here:
 |`compute_land_cover`|Compute area of copernicus land cover classes in sqkm.|
 |`get_gadm_shp`|Download administrative polygons from GADM as a shapefile.|
 |`get_gadm_gpkg`|Download administrative polygons from GADM as a geopackage.|
+|`zonal_operation`|Compute zonal statistics from raster on region of interest.|
+|`area_computation`|Compute areal statistics from polygon on region of interest.|
