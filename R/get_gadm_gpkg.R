@@ -2,6 +2,8 @@
 #'
 #' Download country level administrative datasets in geopackage
 #'
+#' @importFrom utils unzip
+#'
 #' @param x ISO3 country code
 #'
 #' @param f filepath

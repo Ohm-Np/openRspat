@@ -43,8 +43,9 @@ compute_land_cover <- function(r, p, y) {
   df <-
     terra::as.data.frame(lc_rast_mask)
   # new dataframe with value column - to change the column name to value
+  lc_value <- NULL
   df.new <-
-    data.frame(value=NA)
+    data.frame(lc_value=NA)
   # rename column to match with new df where raster values are stored
   colnames(df) <-
     colnames(df.new)
@@ -65,7 +66,7 @@ compute_land_cover <- function(r, p, y) {
   # discrete classification and respective area computation - map code represents respective class name
   ### empty classes
   empty <- df%>%
-    filter(value %in% 0)%>%
+    filter(lc_value %in% 0)%>%
     nrow()
   df.final$copernicus_lc_empty_area_sqkm <- area_sqkm_per_cell*empty
   # rename the column to store value per year
@@ -74,7 +75,7 @@ compute_land_cover <- function(r, p, y) {
 
   ### 111 Closed forest, evergreen needle leaf
   cfenl <- df%>%
-    filter(value %in% 111)%>%
+    filter(lc_value %in% 111)%>%
     nrow()
   df.final$copernicus_lc_closed_forest_evergreen_needle_leaf_area_sqkm <- area_sqkm_per_cell*cfenl
   # rename the column to store value per year
@@ -83,7 +84,7 @@ compute_land_cover <- function(r, p, y) {
 
   ### 113 closed forest, deciduous needle leaf
   cfdnl <- df%>%
-    filter(value %in% 113)%>%
+    filter(lc_value %in% 113)%>%
     nrow()
   df.final$copernicus_lc_closed_forest_deciduous_needle_leaf_area_sqkm <- area_sqkm_per_cell*cfdnl
   # rename the column to store value per year
@@ -92,7 +93,7 @@ compute_land_cover <- function(r, p, y) {
 
   ### 112 closed forest, evergreen, broad leaf
   cfebl <- df%>%
-    filter(value %in% 112)%>%
+    filter(lc_value %in% 112)%>%
     nrow()
   df.final$copernicus_lc_closed_forest_evergreen_broad_leaf_area_sqkm <- area_sqkm_per_cell*cfebl
   # rename the column to store value per year
@@ -101,7 +102,7 @@ compute_land_cover <- function(r, p, y) {
 
   ### 114 closed forest, deciduous broad leaf
   cfdbl <- df%>%
-    filter(value %in% 114)%>%
+    filter(lc_value %in% 114)%>%
     nrow()
   df.final$copernicus_lc_closed_forest_deciduous_broad_leaf_area_sqkm <- area_sqkm_per_cell*cfdbl
   # rename the column to store value per year
@@ -110,7 +111,7 @@ compute_land_cover <- function(r, p, y) {
 
   ### 115 closed forest, mixed
   cfm <- df%>%
-    filter(value %in% 115)%>%
+    filter(lc_value %in% 115)%>%
     nrow()
   df.final$copernicus_lc_closed_forest_mixed_area_sqkm <- area_sqkm_per_cell*cfm
   # rename the column to store value per year
@@ -119,7 +120,7 @@ compute_land_cover <- function(r, p, y) {
 
   ### 116 closed forest, unknown
   cfu <- df%>%
-    filter(value %in% 116)%>%
+    filter(lc_value %in% 116)%>%
     nrow()
   df.final$copernicus_lc_closed_forest_unknown_area_sqkm <- area_sqkm_per_cell*cfu
   # rename the column to store value per year
@@ -128,7 +129,7 @@ compute_land_cover <- function(r, p, y) {
 
   ### 121 Open forest, evergreen needle leaf
   ofenl <- df%>%
-    filter(value %in% 121)%>%
+    filter(lc_value %in% 121)%>%
     nrow()
   df.final$copernicus_lc_open_forest_evergreen_needle_leaf_area_sqkm <- area_sqkm_per_cell*ofenl
   # rename the column to store value per year
@@ -137,7 +138,7 @@ compute_land_cover <- function(r, p, y) {
 
   ### 123 Open forest, deciduous needle leaf
   ofdnl <- df%>%
-    filter(value %in% 123)%>%
+    filter(lc_value %in% 123)%>%
     nrow()
   df.final$copernicus_lc_open_forest_deciduous_needle_leaf_area_sqkm <- area_sqkm_per_cell*ofdnl
   # rename the column to store value per year
@@ -146,7 +147,7 @@ compute_land_cover <- function(r, p, y) {
 
   ### 122 Open forest, evergreen broad leaf
   ofebl <- df%>%
-    filter(value %in% 122)%>%
+    filter(lc_value %in% 122)%>%
     nrow()
   df.final$copernicus_lc_open_forest_evergreen_broad_leaf_area_sqkm <- area_sqkm_per_cell*ofebl
   # rename the column to store value per year
@@ -155,7 +156,7 @@ compute_land_cover <- function(r, p, y) {
 
   ### 124 Open forest, deciduous broad leaf
   ofdbl <- df%>%
-    filter(value %in% 124)%>%
+    filter(lc_value %in% 124)%>%
     nrow()
   df.final$copernicus_lc_open_forest_deciduous_broad_leaf_area_sqkm <- area_sqkm_per_cell*ofdbl
   # rename the column to store value per year
@@ -164,7 +165,7 @@ compute_land_cover <- function(r, p, y) {
 
   ### 125 Open forest, mixed
   ofm <- df%>%
-    filter(value %in% 125)%>%
+    filter(lc_value %in% 125)%>%
     nrow()
   df.final$copernicus_lc_open_forest_mixed_area_sqkm <- area_sqkm_per_cell*ofm
   # rename the column to store value per year
@@ -173,7 +174,7 @@ compute_land_cover <- function(r, p, y) {
 
   ### 126 Open forest, unknown
   ofu <- df%>%
-    filter(value %in% 126)%>%
+    filter(lc_value %in% 126)%>%
     nrow()
   df.final$copernicus_lc_open_forest_unknown_area_sqkm <- area_sqkm_per_cell*ofu
   # rename the column to store value per year
@@ -182,7 +183,7 @@ compute_land_cover <- function(r, p, y) {
 
   ### 20 Shrubs
   shrubs <- df%>%
-    filter(value %in% 20)%>%
+    filter(lc_value %in% 20)%>%
     nrow()
   df.final$copernicus_lc_shrubs_area_sqkm <- area_sqkm_per_cell*shrubs
   # rename the column to store value per year
@@ -191,7 +192,7 @@ compute_land_cover <- function(r, p, y) {
 
   ### 30 herbaceous vegetation
   herb_veg <- df%>%
-    filter(value %in% 30)%>%
+    filter(lc_value %in% 30)%>%
     nrow()
   df.final$copernicus_lc_herbaceous_vegetation_area_sqkm <- area_sqkm_per_cell*herb_veg
   # rename the column to store value per year
@@ -200,7 +201,7 @@ compute_land_cover <- function(r, p, y) {
 
   ### 90 herbaceous wetland
   herb_wet <- df%>%
-    filter(value %in% 90)%>%
+    filter(lc_value %in% 90)%>%
     nrow()
   df.final$copernicus_lc_herbaceous_wetland_area_sqkm <- area_sqkm_per_cell*herb_wet
   # rename the column to store value per year
@@ -209,7 +210,7 @@ compute_land_cover <- function(r, p, y) {
 
   ### 100 Moss and lichen
   moss <- df%>%
-    filter(value %in% 100)%>%
+    filter(lc_value %in% 100)%>%
     nrow()
   df.final$copernicus_lc_moss_area_sqkm <- area_sqkm_per_cell*moss
   # rename the column to store value per year
@@ -218,7 +219,7 @@ compute_land_cover <- function(r, p, y) {
 
   ### 60 Bare / sparse vegetation
   bsv <- df%>%
-    filter(value %in% 60)%>%
+    filter(lc_value %in% 60)%>%
     nrow()
   df.final$copernicus_lc_bare_sparse_vegetation_area_sqkm <- area_sqkm_per_cell*bsv
   # rename the column to store value per year
@@ -227,7 +228,7 @@ compute_land_cover <- function(r, p, y) {
 
   ### 40 Cultivated and managed vegetation/agriculture (cropland)
   cmv <- df%>%
-    filter(value %in% 40)%>%
+    filter(lc_value %in% 40)%>%
     nrow()
   df.final$copernicus_lc_cultivated_managed_vegetation_agriculture_area_sqkm <- area_sqkm_per_cell*cmv
   # rename the column to store value per year
@@ -236,7 +237,7 @@ compute_land_cover <- function(r, p, y) {
 
   ### 50 Urban / Built up
   urban <- df%>%
-    filter(value %in% 50)%>%
+    filter(lc_value %in% 50)%>%
     nrow()
   df.final$copernicus_lc_urban_built_up_area_sqkm <- area_sqkm_per_cell*urban
   # rename the column to store value per year
@@ -245,7 +246,7 @@ compute_land_cover <- function(r, p, y) {
 
   ### 70 Snow and Ice
   snow <- df%>%
-    filter(value %in% 70)%>%
+    filter(lc_value %in% 70)%>%
     nrow()
   df.final$copernicus_lc_snow_and_ice_area_sqkm <- area_sqkm_per_cell*snow
   # rename the column to store value per year
@@ -254,7 +255,7 @@ compute_land_cover <- function(r, p, y) {
 
   ### 80 Permanent water bodies
   pwb <- df%>%
-    filter(value %in% 80)%>%
+    filter(lc_value %in% 80)%>%
     nrow()
   df.final$copernicus_lc_permanent_water_bodies_area_sqkm <- area_sqkm_per_cell*pwb
   # rename the column to store value per year
@@ -263,7 +264,7 @@ compute_land_cover <- function(r, p, y) {
 
   ### 200 Open Sea
   sea <- df%>%
-    filter(value %in% 200)%>%
+    filter(lc_value %in% 200)%>%
     nrow()
   df.final$copernicus_lc_open_sea_area_sqkm <- area_sqkm_per_cell*sea
   # rename the column to store value per year
