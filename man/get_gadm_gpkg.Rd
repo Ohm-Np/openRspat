@@ -19,7 +19,7 @@ Download country level administrative datasets in geopackage
 }
 \examples{
 # give path to your destination folder
-f <- "../../"
+f <- ".."
 # call the function
 get_gadm_gpkg("NPL", f)
 

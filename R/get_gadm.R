@@ -12,7 +12,7 @@
 #'
 #' @examples
 #' # give path to your destination folder
-#' f <- "../../"
+#' f <- ".."
 #' # call the function
 #' get_gadm_gpkg("NPL", f)
 #'
@@ -59,7 +59,7 @@ get_gadm_gpkg <- function(x, f) {
 #'
 #' @examples
 #' # give path to your destination folder
-#' f <- "../.."
+#' f <- ".."
 #' # give ISO3 code as argument x
 #' x <- "NPL"
 #' # call the function

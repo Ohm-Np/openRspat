@@ -19,7 +19,7 @@ Download country level administrative datasets in ESRI shapefile format
 }
 \examples{
 # give path to your destination folder
-f <- "../.."
+f <- ".."
 # give ISO3 code as argument x
 x <- "NPL"
 # call the function
