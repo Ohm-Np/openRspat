@@ -4,9 +4,9 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of openRspat is to create API access to the free and open source geodatasets and provide functions to process those datasets.
+The obejctive of the package **openRspat** is to create API access to the free and open source geodatasets and provide functionalities to process those datasets. The aim is to provide users with an option to pass an argument which might be a polygon or WDPAID and return them the results they wanted in a form of data frame.
 
-`Note: With every new functions being added to the repo, this readme file gets updated.`
+`Note: With every new functions being added to the repo, I will keep updating this readme file. Keep in mind, you can still use the package for the functions mentioned below. Also, keep checking the readme file for the possible future updates.`
 
 ## Installation
 
