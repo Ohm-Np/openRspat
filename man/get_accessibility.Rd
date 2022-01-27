@@ -20,6 +20,6 @@ copernicus land cover rasters
 Download Accessibility to cities global rasters from the collection of 11 different layers for the year from 2015
 }
 \examples{
-f <- "../../Om/test/" # path to the folder where you want to download the rasters
+f <- ".." # path to the folder where you want to download the rasters
 get_accessibility("5k_10k", 14189840, f)
 }

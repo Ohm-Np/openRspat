@@ -14,7 +14,7 @@
 #'
 #' @export
 #' @examples
-#' f <- "../../Om/test/" # path to the folder where you want to download the rasters
+#' f <- ".." # path to the folder where you want to download the rasters
 #' get_accessibility("5k_10k", 14189840, f)
 #' @export
 
