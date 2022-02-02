@@ -29,8 +29,8 @@ library(openRspat)
 
 fname <- system.file("shape/nc.shp", package="sf")
 sf <- sf::st_read(fname)
-x <- sf[1, ]
-area_proj(x)
+aoi <- sf[1, ]
+area_proj(aoi)
 ```
 Other available functions in the package are listed here:
 |Functions|Decsription|
