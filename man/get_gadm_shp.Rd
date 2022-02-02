@@ -20,9 +20,7 @@ Download country level administrative datasets in ESRI shapefile format
 \examples{
 # give path to your destination folder
 file_path <- ".."
-# give ISO3 code as argument x
-iso <- "NPL"
 # call the function
-get_gadm_shp(iso, file_path)
+get_gadm_shp(iso="NPL", file_path=file_path)
 
 }
