@@ -82,7 +82,7 @@ get_copernicus_land_cover <- function(year = NULL,
 #' # transform sf object to match projection with raster object
 #' sf <- sf::st_transform(sf, "+proj=longlat +datum=WGS84 +no_defs")
 #' # call function
-#' compute_land_cover(r, sf[1,], 2015)
+#' compute_land_cover(rast=r, aoi=sf[1,], year=2015)
 #'
 #' @export
 

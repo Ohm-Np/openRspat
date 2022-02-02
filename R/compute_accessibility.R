@@ -65,7 +65,7 @@ get_accessibility <- function(range = NULL,
 #' fname <- system.file("shape/nc.shp", package="sf")
 #' sf <- sf::st_read(fname)
 #' # provide unique id column
-#' idcol <- "CNTY_ID"
+#' idcol <- sf[1, ]$CNTY_ID
 #' # zonal operation type
 #' opn <- "min"
 #' # call function
