@@ -4,13 +4,13 @@
 \alias{zonal_operation}
 \title{Compute zonal statistics from provided raster files}
 \usage{
-zonal_operation(pol, idcol, rast, opn)
+zonal_operation(aoi, idcol, rast, opn)
 }
 \arguments{
-\item{pol}{An sf object with polygons representing areas of interest}
+\item{aoi}{An sf object with polygons representing areas of interest}
 
 \item{idcol}{A character vector identifying a column name which uniquely
-identifies the polygons in the \code{pol} object.}
+identifies the polygons in the \code{aoi} object.}
 
 \item{rast}{A raster object as spatRaster on which to perform zonal operation}
 
@@ -27,12 +27,12 @@ Compute zonal statistics from provided raster files
 # load raster
 rast <- terra::rast(system.file("extdata", "test_worldpop2020.tif", package = "openRspat"))
 # load polygon
-pol <- sf::st_read(system.file("extdata", "test_wdpa.gpkg", package = "openRspat"))
+aoi <- sf::st_read(system.file("extdata", "test_wdpa.gpkg", package = "openRspat"))
 # provide unique id column
 idcol <- "WDPAID"
 # zonal operation type
 opn <- "min"
 # call function
-zonal_operation(pol, idcol, rast, opn)
+zonal_operation(aoi, idcol, rast, opn)
 
 }

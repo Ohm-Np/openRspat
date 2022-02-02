@@ -80,7 +80,7 @@ compute_accessibility <- function(aoi, acc_rast, idcol, opn) {
     {
 
       zstats <-
-        openRspat::zonal_operation(aoi, acc_rast, idcol, opn)
+        openRspat::zonal_operation(aoi = aoi, rast =  acc_rast, idcol = idcol, opn = opn)
       travel_time_to_nearby_cities <- NULL
       df <- data.frame(ID=idcol,
                        travel_time_to_nearby_cities=zstats[, 2])
