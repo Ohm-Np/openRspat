@@ -29,7 +29,10 @@
 #'
 #' @export
 
-zonal_operation <- function(aoi, idcol, rast, opn) {
+zonal_operation <- function(aoi=NULL,
+                            idcol=NULL,
+                            rast=NULL,
+                            opn=NULL) {
 
   # transform crs of aoi to area_proj()
   aoi <- st_transform(aoi,

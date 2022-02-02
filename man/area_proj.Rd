@@ -4,10 +4,10 @@
 \alias{area_proj}
 \title{Area Projection}
 \usage{
-area_proj(x)
+area_proj(aoi = NULL)
 }
 \arguments{
-\item{x}{sf object}
+\item{aoi}{area of interest - polygon object (sf)}
 }
 \value{
 LAEA projection string
@@ -18,6 +18,6 @@ Get LAEA projection strings from the provided sf object
 \examples{
 fname <- system.file("shape/nc.shp", package="sf")
 sf <- sf::st_read(fname)
-x <- sf[1, ]
-area_proj(x)
+aoi <- sf[1, ]
+area_proj(aoi)
 }

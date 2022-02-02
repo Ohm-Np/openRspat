@@ -4,12 +4,12 @@
 \alias{get_gadm_gpkg}
 \title{Get GADM country level datasets (geopackage)}
 \usage{
-get_gadm_gpkg(x, f)
+get_gadm_gpkg(iso = NULL, file_path = NULL)
 }
 \arguments{
-\item{x}{ISO3 country code}
+\item{iso}{ISO3 country code}
 
-\item{f}{filepath}
+\item{file_path}{filepath}
 }
 \value{
 gadm geopackage
@@ -19,7 +19,7 @@ Download country level administrative datasets in geopackage
 }
 \examples{
 # give path to your destination folder
-f <- ".."
+file_path <- ".."
 # call the function
 get_gadm_gpkg("NPL", f)
 

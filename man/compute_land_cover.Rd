@@ -4,14 +4,14 @@
 \alias{compute_land_cover}
 \title{Compute land cover statistics}
 \usage{
-compute_land_cover(r, p, y)
+compute_land_cover(rast = NULL, aoi = NULL, year = NULL)
 }
 \arguments{
-\item{r}{land cover raster}
+\item{rast}{land cover raster}
 
-\item{p}{polygon object (sf)}
+\item{aoi}{area of interest - polygon object (sf)}
 
-\item{y}{year}
+\item{year}{year}
 }
 \value{
 land cover classes

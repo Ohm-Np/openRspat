@@ -4,14 +4,14 @@
 \alias{get_accessibility}
 \title{Get Accessibility to cities raster datasets}
 \usage{
-get_accessibility(range, index, path)
+get_accessibility(range = NULL, index = NULL, file_path = NULL)
 }
 \arguments{
 \item{range}{range of urban population}
 
 \item{index}{index in which the file is stored in the database cloud}
 
-\item{path}{path location}
+\item{file_path}{path location}
 }
 \value{
 copernicus land cover rasters
@@ -20,6 +20,6 @@ copernicus land cover rasters
 Download Accessibility to cities global rasters from the collection of 11 different layers for the year from 2015
 }
 \examples{
-f <- ".." # path to the folder where you want to download the rasters
-get_accessibility("5k_10k", 14189840, f)
+file_path <- ".." # path to the folder where you want to download the rasters
+get_accessibility(range="5k_10k", index=14189840, file_path=file_path)
 }

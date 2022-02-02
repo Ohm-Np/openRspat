@@ -4,12 +4,12 @@
 \alias{get_gadm_shp}
 \title{Get GADM country level datasets (shapefile)}
 \usage{
-get_gadm_shp(x, f)
+get_gadm_shp(iso = NULL, file_path = NULL)
 }
 \arguments{
-\item{x}{ISO3 country code}
+\item{iso}{ISO3 country code}
 
-\item{f}{filepath}
+\item{file_path}{filepath}
 }
 \value{
 gadm shapefiles
@@ -19,10 +19,10 @@ Download country level administrative datasets in ESRI shapefile format
 }
 \examples{
 # give path to your destination folder
-f <- ".."
+file_path <- ".."
 # give ISO3 code as argument x
-x <- "NPL"
+iso <- "NPL"
 # call the function
-get_gadm_shp(x, f)
+get_gadm_shp(iso, file_path)
 
 }

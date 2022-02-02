@@ -4,12 +4,12 @@
 \alias{area_computation}
 \title{Compute area statistics for region of interest on desired polygon datasets}
 \usage{
-area_computation(roi, data, unit)
+area_computation(aoi = NULL, target_data = NULL, unit = NULL)
 }
 \arguments{
-\item{roi}{An sf object with polygons representing region of interest}
+\item{aoi}{area of interest - polygon object (sf)}
 
-\item{data}{An sf object of which area is to be computed}
+\item{target_data}{An sf object of which area is to be computed}
 
 \item{unit}{A character vector defining whether the result area should be in meter ("m") or kilometer ("km")}
 }
@@ -28,6 +28,6 @@ teow <- sf::st_read(system.file("extdata", "test_ecoregions.gpkg", package = "op
 # define unit
 unit <- "m"
 # call function
-area_computation(pa, teow, unit)
+area_computation(aoi=pa, target_data=teow, unit=unit)
 
 }

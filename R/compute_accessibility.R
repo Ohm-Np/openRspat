@@ -6,7 +6,7 @@
 #'
 #' @param index index in which the file is stored in the database cloud
 #'
-#' @param path path location
+#' @param file_path path location
 #'
 #' @importFrom utils download.file
 #'
@@ -14,24 +14,25 @@
 #'
 #' @export
 #' @examples
-#' f <- ".." # path to the folder where you want to download the rasters
-#' get_accessibility("5k_10k", 14189840, f)
+#' file_path <- ".." # path to the folder where you want to download the rasters
+#' get_accessibility(range="5k_10k", index=14189840, file_path=file_path)
 #' @export
 
 
-get_accessibility <- function(range, index, path) {
-
+get_accessibility <- function(range = NULL,
+                              index = NULL,
+                              file_path = NULL) {
   tryCatch(
     {
       # create URL
-      url <- paste0("https://ndownloader.figshare.com/files/",index)
+      url <- paste0("https://ndownloader.figshare.com/files/", index)
       # destination file to download the raster file
-      destfile <- paste0(path, "/", range,".tif")
+      destfile <- paste0(file_path, "/", range, ".tif")
       # download command
       download.file(url, destfile)
     },
     error = function(e) {
-      message('Error in this line!')
+      message("Error in this line!")
     }
   )
 }
@@ -68,28 +69,37 @@ get_accessibility <- function(range, index, path) {
 #' # zonal operation type
 #' opn <- "min"
 #' # call function
-#' compute_accessibility(sf[1,], r, idcol, opn)
+#' compute_accessibility(aoi=sf[1,], acc_rast=r, idcol=idcol, opn=opn)
 #'
 #' @export
 #'
 
 
-compute_accessibility <- function(aoi, acc_rast, idcol, opn) {
-
+compute_accessibility <- function(aoi = NULL,
+                                  acc_rast = NULL,
+                                  idcol = NULL,
+                                  opn = NULL) {
   tryCatch(
     {
-
       zstats <-
-        openRspat::zonal_operation(aoi = aoi, rast =  acc_rast, idcol = idcol, opn = opn)
+        openRspat::zonal_operation(
+          aoi = aoi,
+          rast = acc_rast,
+          idcol = idcol,
+          opn = opn
+        )
       travel_time_to_nearby_cities <- NULL
-      df <- data.frame(ID=idcol,
-                       travel_time_to_nearby_cities=zstats[, 2])
+      df <- data.frame(
+        ID = idcol,
+        travel_time_to_nearby_cities = zstats[, 2]
+      )
       zstats_longer <- tidyr::pivot_longer(df,
-                                    cols = travel_time_to_nearby_cities)
+        cols = travel_time_to_nearby_cities
+      )
       return(zstats_longer)
     },
     error = function(e) {
-      message('Error in this line!')
+      message("Error in this line!")
     }
   )
 }

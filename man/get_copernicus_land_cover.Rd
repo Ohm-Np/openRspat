@@ -4,14 +4,14 @@
 \alias{get_copernicus_land_cover}
 \title{Get Copernicus Global Land Cover}
 \usage{
-get_copernicus_land_cover(y, g, f)
+get_copernicus_land_cover(year = NULL, grid = NULL, file_path = NULL)
 }
 \arguments{
-\item{y}{year (2015 to 2019)}
+\item{year}{year (2015 to 2019)}
 
-\item{g}{Latlon grid}
+\item{grid}{Latlon grid}
 
-\item{f}{path}
+\item{file_path}{path}
 }
 \value{
 copernicus land cover rasters
@@ -21,5 +21,5 @@ Download Copernicus Global Land Cover rasters with 23 discrete classifications f
 }
 \examples{
 f <- ".." # path to the folder where you want to download the rasters
-get_copernicus_land_cover(2015, "W120N40", f)
+get_copernicus_land_cover(year=2015, grid="W120N40", file_path=f)
 }

@@ -4,7 +4,7 @@
 \alias{zonal_operation}
 \title{Compute zonal statistics from provided raster files}
 \usage{
-zonal_operation(aoi, idcol, rast, opn)
+zonal_operation(aoi = NULL, idcol = NULL, rast = NULL, opn = NULL)
 }
 \arguments{
 \item{aoi}{An sf object with polygons representing areas of interest}

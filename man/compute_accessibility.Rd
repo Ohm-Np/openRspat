@@ -4,7 +4,7 @@
 \alias{compute_accessibility}
 \title{Compute zonal statistics for travel time from the area of interest to the nearby cities}
 \usage{
-compute_accessibility(aoi, acc_rast, idcol, opn)
+compute_accessibility(aoi = NULL, acc_rast = NULL, idcol = NULL, opn = NULL)
 }
 \arguments{
 \item{aoi}{area of interest - polygon (sf)}
@@ -34,6 +34,6 @@ idcol <- "CNTY_ID"
 # zonal operation type
 opn <- "min"
 # call function
-compute_accessibility(sf[1,], r, idcol, opn)
+compute_accessibility(aoi=sf[1,], acc_rast=r, idcol=idcol, opn=opn)
 
 }
