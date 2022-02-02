@@ -42,3 +42,4 @@ Other available functions in the package are listed here:
 |`zonal_operation`|Compute zonal statistics from raster on region of interest.|
 |`area_computation`|Compute areal statistics from polygon on region of interest.|
 |`get_accessibility`|Download Accessibility to cities' global rasters from the collection of 11 different raster layers for the year 2015.|
+|`compute_accessibility`|Compute zonal statistics for travel time from the area of interest to the nearby cities.|
