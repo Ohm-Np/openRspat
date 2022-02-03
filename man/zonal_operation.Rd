@@ -4,7 +4,7 @@
 \alias{zonal_operation}
 \title{Compute zonal statistics from provided raster files}
 \usage{
-zonal_operation(aoi = NULL, idcol = NULL, rast = NULL, opn = NULL)
+zonal_operation(aoi = NULL, idcol = NULL, rast = NULL, opn = "mean")
 }
 \arguments{
 \item{aoi}{An sf object with polygons representing areas of interest}
@@ -14,7 +14,7 @@ identifies the polygons in the \code{aoi} object.}
 
 \item{rast}{A raster object as spatRaster on which to perform zonal operation}
 
-\item{opn}{A type of zonal operation (e.g. sum, mean, min, max)}
+\item{opn}{A type of zonal operation (sum/mean/min/max) - mean being default value}
 }
 \value{
 A dataframe with zonal statistics

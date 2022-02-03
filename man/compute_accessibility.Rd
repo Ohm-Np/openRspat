@@ -4,7 +4,7 @@
 \alias{compute_accessibility}
 \title{Compute zonal statistics for travel time from the area of interest to the nearby cities}
 \usage{
-compute_accessibility(aoi = NULL, acc_rast = NULL, idcol = NULL, opn = NULL)
+compute_accessibility(aoi = NULL, acc_rast = NULL, idcol = NULL, opn = "mean")
 }
 \arguments{
 \item{aoi}{area of interest - polygon (sf)}
@@ -14,7 +14,7 @@ compute_accessibility(aoi = NULL, acc_rast = NULL, idcol = NULL, opn = NULL)
 \item{idcol}{A character vector identifying a column name which uniquely
 identifies the polygons in the \code{aoi} object.}
 
-\item{opn}{A type of zonal operation (e.g. sum, mean, min, max)}
+\item{opn}{A type of zonal operation (sum/mean/min/max) - mean being default value}
 }
 \value{
 zonal statistics

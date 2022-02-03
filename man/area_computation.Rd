@@ -4,14 +4,14 @@
 \alias{area_computation}
 \title{Compute area statistics for region of interest on desired polygon datasets}
 \usage{
-area_computation(aoi = NULL, target_data = NULL, unit = NULL)
+area_computation(aoi = NULL, target_data = NULL, unit = "m")
 }
 \arguments{
 \item{aoi}{area of interest - polygon object (sf)}
 
 \item{target_data}{An sf object of which area is to be computed}
 
-\item{unit}{A character vector defining whether the result area should be in meter ("m") or kilometer ("km")}
+\item{unit}{A character vector defining whether the result area should be in meter ("m") or kilometer ("km") - meter being default value}
 }
 \value{
 A dataframe with areal statistics

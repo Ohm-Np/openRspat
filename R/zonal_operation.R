@@ -7,7 +7,7 @@
 #'
 #' @param rast A raster object as spatRaster on which to perform zonal operation
 #'
-#' @param opn A type of zonal operation (e.g. sum, mean, min, max)
+#' @param opn A type of zonal operation (sum/mean/min/max) - mean being default value
 #'
 #' @import sf
 #' @import terra
@@ -32,7 +32,7 @@
 zonal_operation <- function(aoi=NULL,
                             idcol=NULL,
                             rast=NULL,
-                            opn=NULL) {
+                            opn="mean") {
 
   # transform crs of aoi to area_proj()
   aoi <- st_transform(aoi,

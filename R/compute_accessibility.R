@@ -49,7 +49,7 @@ get_accessibility <- function(range = NULL,
 #' @param idcol A character vector identifying a column name which uniquely
 #' identifies the polygons in the \code{aoi} object.
 #'
-#' @param opn A type of zonal operation (e.g. sum, mean, min, max)
+#' @param opn A type of zonal operation (sum/mean/min/max) - mean being default value
 #'
 #' @importFrom dplyr %>%
 #' @importFrom dplyr filter
@@ -78,7 +78,7 @@ get_accessibility <- function(range = NULL,
 compute_accessibility <- function(aoi = NULL,
                                   acc_rast = NULL,
                                   idcol = NULL,
-                                  opn = NULL) {
+                                  opn = "mean") {
   tryCatch(
     {
       zstats <-
@@ -99,7 +99,7 @@ compute_accessibility <- function(aoi = NULL,
       return(zstats_longer)
     },
     error = function(e) {
-      message("Error in this line!")
+      message("Re-check arguments!")
     }
   )
 }

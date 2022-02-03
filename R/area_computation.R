@@ -4,7 +4,7 @@
 #'
 #' @param target_data An sf object of which area is to be computed
 #'
-#' @param unit A character vector defining whether the result area should be in meter ("m") or kilometer ("km")
+#' @param unit A character vector defining whether the result area should be in meter ("m") or kilometer ("km") - meter being default value
 #'
 #' @import sf
 #'
@@ -25,7 +25,7 @@
 
 area_computation <- function(aoi = NULL,
                              target_data = NULL,
-                             unit = NULL) {
+                             unit = "m") {
 
   # transform crs of pol to area_proj()
   aoi <- st_transform(
