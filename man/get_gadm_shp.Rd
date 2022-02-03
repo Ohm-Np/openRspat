@@ -18,9 +18,12 @@ gadm shapefiles
 Download country level administrative datasets in ESRI shapefile format
 }
 \examples{
+
+\donttest{
 # give path to your destination folder
 file_path <- ".."
 # call the function
 get_gadm_shp(iso="NPL", file_path=file_path)
+}
 
 }

@@ -16,6 +16,7 @@
 #'
 #' @examples
 #'
+#' \donttest{
 #' # load raster
 #' rast <- terra::rast(system.file("extdata", "test_worldpop2020.tif", package = "openRspat"))
 #' # load polygon
@@ -26,6 +27,7 @@
 #' opn <- "min"
 #' # call function
 #' zonal_operation(aoi, idcol, rast, opn)
+#' }
 #'
 #' @export
 

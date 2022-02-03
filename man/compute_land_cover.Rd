@@ -21,6 +21,7 @@ Compute copernicus global land cover statistics - 23 discrete classifications
 }
 \examples{
 
+\donttest{
 # load raster
 r <- terra::rast(system.file("extdata", "test_lc_rast.tif", package = "openRspat"))
 # load polygon
@@ -30,5 +31,6 @@ sf <- sf::st_read(fname)
 sf <- sf::st_transform(sf, "+proj=longlat +datum=WGS84 +no_defs")
 # call function
 compute_land_cover(rast=r, aoi=sf[1,], year=2015)
+}
 
 }

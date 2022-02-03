@@ -11,10 +11,13 @@
 #' @return gadm geopackage
 #'
 #' @examples
+#'
+#' \donttest{
 #' # give path to your destination folder
 #' file_path <- ".."
 #' # call the function
 #' get_gadm_gpkg(iso="NPL", file_path=f)
+#' }
 #'
 #' @export
 
@@ -60,10 +63,13 @@ get_gadm_gpkg <- function(iso = NULL,
 #' @return gadm shapefiles
 #'
 #' @examples
+#'
+#' \donttest{
 #' # give path to your destination folder
 #' file_path <- ".."
 #' # call the function
 #' get_gadm_shp(iso="NPL", file_path=file_path)
+#' }
 #'
 #' @export
 

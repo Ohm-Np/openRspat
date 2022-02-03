@@ -14,8 +14,12 @@
 #'
 #' @export
 #' @examples
+#'
+#' \donttest{
 #' f <- ".." # path to the folder where you want to download the rasters
 #' get_copernicus_land_cover(year=2015, grid="W120N40", file_path=f)
+#' }
+#'
 #' @export
 
 
@@ -74,6 +78,7 @@ get_copernicus_land_cover <- function(year = NULL,
 #'
 #' @examples
 #'
+#' \donttest{
 #' # load raster
 #' r <- terra::rast(system.file("extdata", "test_lc_rast.tif", package = "openRspat"))
 #' # load polygon
@@ -83,6 +88,7 @@ get_copernicus_land_cover <- function(year = NULL,
 #' sf <- sf::st_transform(sf, "+proj=longlat +datum=WGS84 +no_defs")
 #' # call function
 #' compute_land_cover(rast=r, aoi=sf[1,], year=2015)
+#' }
 #'
 #' @export
 

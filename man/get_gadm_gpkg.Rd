@@ -18,9 +18,12 @@ gadm geopackage
 Download country level administrative datasets in geopackage
 }
 \examples{
+
+\donttest{
 # give path to your destination folder
 file_path <- ".."
 # call the function
 get_gadm_gpkg(iso="NPL", file_path=f)
+}
 
 }

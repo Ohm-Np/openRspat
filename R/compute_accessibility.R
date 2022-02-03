@@ -10,12 +10,16 @@
 #'
 #' @importFrom utils download.file
 #'
-#' @return copernicus land cover rasters
+#' @return accessibility rasters
 #'
 #' @export
 #' @examples
+#'
+#' \donttest{
 #' file_path <- ".." # path to the folder where you want to download the rasters
 #' get_accessibility(range="5k_10k", index=14189840, file_path=file_path)
+#' }
+#'
 #' @export
 
 
@@ -32,7 +36,7 @@ get_accessibility <- function(range = NULL,
       download.file(url, destfile)
     },
     error = function(e) {
-      message("Error in this line!")
+      message("Re-check the arguments!")
     }
   )
 }
@@ -59,6 +63,7 @@ get_accessibility <- function(range = NULL,
 #'
 #' @examples
 #'
+#' \donttest{
 #' # load raster
 #' r <- terra::rast(system.file("extdata", "test_acc_rast.tif", package = "openRspat"))
 #' # load polygon
@@ -70,6 +75,7 @@ get_accessibility <- function(range = NULL,
 #' opn <- "min"
 #' # call function
 #' compute_accessibility(aoi=sf[1,], acc_rast=r, idcol=idcol, opn=opn)
+#' }
 #'
 #' @export
 #'

@@ -24,6 +24,7 @@ Returns the result in long-table format
 }
 \examples{
 
+\donttest{
 # load raster
 r <- terra::rast(system.file("extdata", "test_acc_rast.tif", package = "openRspat"))
 # load polygon
@@ -35,5 +36,6 @@ idcol <- sf[1, ]$CNTY_ID
 opn <- "min"
 # call function
 compute_accessibility(aoi=sf[1,], acc_rast=r, idcol=idcol, opn=opn)
+}
 
 }

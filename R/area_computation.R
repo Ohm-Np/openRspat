@@ -12,6 +12,7 @@
 #'
 #' @examples
 #'
+#' \donttest{
 #' # load wdpa polygon
 #' pa <- sf::st_read(system.file("extdata", "test_wdpa.gpkg", package = "openRspat"))
 #' # load test data
@@ -20,6 +21,7 @@
 #' unit <- "m"
 #' # call function
 #' area_computation(aoi=pa, target_data=teow, unit=unit)
+#' }
 #'
 #' @export
 
@@ -70,10 +72,14 @@ area_computation <- function(aoi = NULL,
 #'
 #' @export
 #' @examples
+#'
+#' \donttest{
 #' fname <- system.file("shape/nc.shp", package="sf")
 #' sf <- sf::st_read(fname)
 #' aoi <- sf[1, ]
 #' area_proj(aoi)
+#' }
+#'
 #' @export
 
 area_proj <- function(aoi = NULL) {

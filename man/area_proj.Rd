@@ -16,8 +16,12 @@ LAEA projection string
 Get LAEA projection strings from the provided sf object
 }
 \examples{
+
+\donttest{
 fname <- system.file("shape/nc.shp", package="sf")
 sf <- sf::st_read(fname)
 aoi <- sf[1, ]
 area_proj(aoi)
+}
+
 }

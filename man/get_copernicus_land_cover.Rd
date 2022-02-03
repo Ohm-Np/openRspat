@@ -20,6 +20,10 @@ copernicus land cover rasters
 Download Copernicus Global Land Cover rasters with 23 discrete classifications for the desired year from 2015 to 2019 and for the desired grid
 }
 \examples{
+
+\donttest{
 f <- ".." # path to the folder where you want to download the rasters
 get_copernicus_land_cover(year=2015, grid="W120N40", file_path=f)
+}
+
 }

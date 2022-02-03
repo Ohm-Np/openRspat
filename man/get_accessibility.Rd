@@ -14,12 +14,16 @@ get_accessibility(range = NULL, index = NULL, file_path = NULL)
 \item{file_path}{path location}
 }
 \value{
-copernicus land cover rasters
+accessibility rasters
 }
 \description{
 Download Accessibility to cities global rasters from the collection of 11 different layers for the year from 2015
 }
 \examples{
+
+\donttest{
 file_path <- ".." # path to the folder where you want to download the rasters
 get_accessibility(range="5k_10k", index=14189840, file_path=file_path)
+}
+
 }

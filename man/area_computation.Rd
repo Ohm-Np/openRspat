@@ -21,6 +21,7 @@ Compute area statistics for region of interest on desired polygon datasets
 }
 \examples{
 
+\donttest{
 # load wdpa polygon
 pa <- sf::st_read(system.file("extdata", "test_wdpa.gpkg", package = "openRspat"))
 # load test data
@@ -29,5 +30,6 @@ teow <- sf::st_read(system.file("extdata", "test_eoregions.gpkg", package = "ope
 unit <- "m"
 # call function
 area_computation(aoi=pa, target_data=teow, unit=unit)
+}
 
 }
