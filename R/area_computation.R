@@ -15,7 +15,7 @@
 #' # load wdpa polygon
 #' pa <- sf::st_read(system.file("extdata", "test_wdpa.gpkg", package = "openRspat"))
 #' # load test data
-#' teow <- sf::st_read(system.file("extdata", "test_ecoregions.gpkg", package = "openRspat"))
+#' teow <- sf::st_read(system.file("extdata", "test_eoregions.gpkg", package = "openRspat"))
 #' # define unit
 #' unit <- "m"
 #' # call function
