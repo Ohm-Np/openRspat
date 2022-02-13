@@ -13,7 +13,8 @@ get_ecoregions(file_path = NULL)
 teow gpkg
 }
 \description{
-It is a one-time downloadable data. The function first downloads the zip file, unzip it, load the shapefile, convert the shapefile to geopackage and write the geopackage to file.
+It is a one-time downloadable data. The function first downloads the zip file, unzip it...
+...load the shapefile, convert the shapefile to geopackage and write the geopackage to file.
 }
 \examples{
 
