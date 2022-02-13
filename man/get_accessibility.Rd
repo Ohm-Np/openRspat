@@ -19,6 +19,20 @@ accessibility rasters
 \description{
 Download Accessibility to cities global rasters from the collection of 11 different layers for the year from 2015
 }
+\details{
+The list of range of population layer and corresponding index to use:
+"5k_10k", 14189840
+"10k_20k", 14189837
+"20k_50k", 14189831
+"50k_100k", 14189825
+"100k_200k", 14189819
+"200k_500k", 14189816
+"500k_1mio", 14189810
+"1mio_5mio", 14189807
+"50k_50mio", 14189849
+"5k_110mio", 14189852
+"20k_110mio", 14189843
+}
 \examples{
 
 \donttest{
