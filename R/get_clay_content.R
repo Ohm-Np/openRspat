@@ -13,7 +13,7 @@
 #'
 #' \donttest{
 #' file_path <- ".." # path to the folder where you want to download the rasters
-#' # Download population count rasters
+#' # Download clay content rasters
 #' get_clay_content(depth = 30, file_path=file_path)
 #' }
 #'
@@ -27,7 +27,7 @@ get_clay_content <- function(depth = NULL,
 
       # create url
       url <- paste0("https://zenodo.org/record/2525663/files/sol_clay.wfraction_usda.3a1a1a_m_250m_b",depth,"..",depth,"cm_1950..2017_v0.2.tif?download=1")
-      # create string for destination
+      # create destination file path
       destfile <- paste0(file_path,
                          "/clay_content_",depth,"_cm.tif")
       # download the file to the file path
@@ -38,3 +38,4 @@ get_clay_content <- function(depth = NULL,
     }
   )
 }
+

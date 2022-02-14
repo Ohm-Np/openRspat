@@ -4,9 +4,9 @@
 #'
 #' @param year year (2015 to 2019)
 #'
-#' @param grid Latlon grid
+#' @param grid 20*20 Latlon grid (e.g. "W120N40")
 #'
-#' @param file_path path
+#' @param file_path path location
 #'
 #' @importFrom utils download.file
 #'
@@ -17,7 +17,8 @@
 #'
 #' \donttest{
 #' f <- ".." # path to the folder where you want to download the rasters
-#' get_copernicus_land_cover(year=2015, grid="W120N40", file_path=f)
+#' # Download global land cover rasters for the year 2019
+#' get_copernicus_land_cover(year=2019, grid="W120N40", file_path=f)
 #' }
 #'
 #' @export
