@@ -21,7 +21,7 @@ Download global clay content rasters at three different depths
 
 \donttest{
 file_path <- ".." # path to the folder where you want to download the rasters
-# Download population count rasters
+# Download clay content rasters
 get_clay_content(depth = 30, file_path=file_path)
 }
 

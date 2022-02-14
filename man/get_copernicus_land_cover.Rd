@@ -9,9 +9,9 @@ get_copernicus_land_cover(year = NULL, grid = NULL, file_path = NULL)
 \arguments{
 \item{year}{year (2015 to 2019)}
 
-\item{grid}{Latlon grid}
+\item{grid}{20*20 Latlon grid (e.g. "W120N40")}
 
-\item{file_path}{path}
+\item{file_path}{path location}
 }
 \value{
 copernicus land cover rasters
@@ -23,7 +23,8 @@ Download Copernicus Global Land Cover rasters with 23 discrete classifications f
 
 \donttest{
 f <- ".." # path to the folder where you want to download the rasters
-get_copernicus_land_cover(year=2015, grid="W120N40", file_path=f)
+# Download global land cover rasters for the year 2019
+get_copernicus_land_cover(year=2019, grid="W120N40", file_path=f)
 }
 
 }
