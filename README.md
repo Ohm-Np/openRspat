@@ -8,6 +8,9 @@ The objective of the package **openRspat** is to create API access to the free a
 
 `Note: With every new functions being added to the repo, I will keep updating this readme file. You can still use the package for the functions mentioned below. Also, keep checking the readme file for the possible future updates.`
 
+# Quickstart Guide
+This section will take you through a tour on how to use this package on your R environment.  
+
 ## Installation
 
 You can install the released version of openRspat from [GitHub](https://github.com/) with:
